@@ -1,5 +1,5 @@
 //
-//  MarvelTablePresenter.swift
+//  RemoteDataSource.swift
 //  Marvel
 //
 //  Created by Ahmad Ragab on 7/24/18.
@@ -7,4 +7,3 @@
 //
 
 import Foundation
-
