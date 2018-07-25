@@ -4,7 +4,7 @@
 
 import Foundation
 
-struct Marvel: Codable {
+struct Marvel: Codable  {
     let code: Int
     let status, copyright, attributionText, attributionHTML: String
     let etag: String

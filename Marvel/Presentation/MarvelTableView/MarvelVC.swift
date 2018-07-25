@@ -12,7 +12,10 @@ class MarvelVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        CharacterRepositoryUseCase().getCharactersData(completion: {(characters:[Result]) in
+            print(characters)
+            }
+        )
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

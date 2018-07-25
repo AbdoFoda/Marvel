@@ -8,17 +8,29 @@
 
 import Foundation
 class RemoteDS  :MarvelDataSource{
-    func getMarvelData(requestValues: CharacterRequestValues, onSuccess_repo: @escaping ([Marvel]) -> Void, onFailure_repo: @escaping (String) -> Void) {
+    
+    
+    static func getMarvelData(requestValues: CharacterRequestValues, onSuccess_repo: @escaping ([Result]) -> Void, onFailure_repo: @escaping (String) -> Void) {
         let url = APIURLS.characterURL
         var headers: [String : String] = [:]
         headers["Content-type"] = "application/json"
         
         AlamofireClient.sharedInstance.executeGetRequest(url: url, parameters: [:], header: headers, success: { (response) in
-          //  let json  = response as! JSON
+            print("DONWLOADED")
+            let json = response as! NSDictionary
+            let data  = json.object(forKey: "data") as! [String:Any]
+            let characters :[Result] = data["results"] as! [Result]
+            for char in characters{
+                print(char.name)
+            }
             
-        }) { (error) in
             
         }
+           , failure: {
+                (error) in
+                print(error)
+        }
+        )
     }
     
     
