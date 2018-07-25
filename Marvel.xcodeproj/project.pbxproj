@@ -21,6 +21,9 @@
 		D20E54BA21077E5E00B9C57C /* DataSourceContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E54B921077E5E00B9C57C /* DataSourceContract.swift */; };
 		D20E54BC21077E7500B9C57C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E54BB21077E7500B9C57C /* Repository.swift */; };
 		D20E54BE21077E8A00B9C57C /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E54BD21077E8A00B9C57C /* RemoteDataSource.swift */; };
+		D20E54C12108976A00B9C57C /* APIStatics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E54C02108976A00B9C57C /* APIStatics.swift */; };
+		D20E54C32108997300B9C57C /* getCharacterContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E54C22108997300B9C57C /* getCharacterContract.swift */; };
+		D20E54C52108A06700B9C57C /* getCharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E54C42108A06700B9C57C /* getCharactersUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		D20E54B921077E5E00B9C57C /* DataSourceContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceContract.swift; sourceTree = "<group>"; };
 		D20E54BB21077E7500B9C57C /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		D20E54BD21077E8A00B9C57C /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
+		D20E54C02108976A00B9C57C /* APIStatics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStatics.swift; sourceTree = "<group>"; };
+		D20E54C22108997300B9C57C /* getCharacterContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getCharacterContract.swift; sourceTree = "<group>"; };
+		D20E54C42108A06700B9C57C /* getCharactersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getCharactersUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,7 @@
 		D20E54A121075F2400B9C57C /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				D20E54C02108976A00B9C57C /* APIStatics.swift */,
 				D20E54B62107796F00B9C57C /* AlamofireClient.swift */,
 				D20E54B52107796F00B9C57C /* APIClient.swift */,
 				D20E54AC2107675E00B9C57C /* MarvelModel.swift */,
@@ -125,6 +132,8 @@
 		D20E54A321075F8600B9C57C /* Bussiness */ = {
 			isa = PBXGroup;
 			children = (
+				D20E54C22108997300B9C57C /* getCharacterContract.swift */,
+				D20E54C42108A06700B9C57C /* getCharactersUseCase.swift */,
 			);
 			path = Bussiness;
 			sourceTree = "<group>";
@@ -240,10 +249,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Marvel/Pods-Marvel-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftHash/SwiftHash.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHash.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -290,12 +301,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D20E54C32108997300B9C57C /* getCharacterContract.swift in Sources */,
 				D20E549021075C4100B9C57C /* AppDelegate.swift in Sources */,
 				D20E54BA21077E5E00B9C57C /* DataSourceContract.swift in Sources */,
 				D20E54B82107796F00B9C57C /* AlamofireClient.swift in Sources */,
 				D20E54B42107775300B9C57C /* MarvelVC.swift in Sources */,
+				D20E54C52108A06700B9C57C /* getCharactersUseCase.swift in Sources */,
 				D20E54BE21077E8A00B9C57C /* RemoteDataSource.swift in Sources */,
 				D20E54AD2107675E00B9C57C /* MarvelModel.swift in Sources */,
+				D20E54C12108976A00B9C57C /* APIStatics.swift in Sources */,
 				D20E54B72107796F00B9C57C /* APIClient.swift in Sources */,
 				D20E54BC21077E7500B9C57C /* Repository.swift in Sources */,
 				D20E54AA2107610700B9C57C /* MarvelCell.swift in Sources */,
