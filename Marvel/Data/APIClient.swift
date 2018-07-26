@@ -13,6 +13,6 @@ protocol APIClient{
   
     func executePostRequest(url:String,parameters: [String:Any]?,header : [String:String]?,success:@escaping (Any) -> Void, failure:@escaping (Error) -> Void)
   
-    func executeGetRequest(url:String,parameters: [String:Any]?,header : [String:String]?,success:@escaping (Any) -> Void, failure:@escaping (Error) -> Void)
+    func executeGetRequest(url:String,parameters: [String:Any]?,header : [String:String]?,success:@escaping (Data) -> Void, failure:@escaping (Error) -> Void)
 
 }

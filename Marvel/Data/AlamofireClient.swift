@@ -35,7 +35,7 @@ struct AlamofireClient: APIClient {
         
     }
     
-    func executeGetRequest(url:String,parameters: [String:Any]?,header : [String:String]?,success:@escaping (Any) -> Void, failure:@escaping (Error) -> Void){
+    func executeGetRequest(url:String,parameters: [String:Any]?,header : [String:String]?,success:@escaping (Data) -> Void, failure:@escaping (Error) -> Void){
         
         
         print("URL:: \(url)")
@@ -47,14 +47,11 @@ struct AlamofireClient: APIClient {
             switch(response.result) {
                 
             case .success( _):
-                
-                
-                let json = response.result.value!
-                print(" - - - -  - - - - - - - ")
-                print("JSON: \(json)")
-                print(" - - - -  - - - - - - - ")
-                
-                success(json)
+//                let json = response.result.value
+//                print(" - - - -  - - - - - - - ")
+//                print("JSON: \(json)")
+//                print(" - - - -  - - - - - - - ")
+                success(response.data!)
                 
             case .failure(let error):
                 print(" - - - -  - - - - - - - ")
