@@ -2,7 +2,7 @@ import Foundation
 import Alamofire
 
 
-struct AlamofireClient: APIClient {
+class AlamofireClient: APIClient {
     
     //MARK: Shared Instance
     
@@ -11,6 +11,7 @@ struct AlamofireClient: APIClient {
     private init() {
         
     }
+    
     
     func executePostRequest(url:String,parameters: [String:Any]?,header : [String:String]?,success:@escaping (Any) -> Void, failure:@escaping (Error) -> Void){
         
@@ -63,6 +64,29 @@ struct AlamofireClient: APIClient {
         }
         
     }
+    
+    // Mark: Download Image
+    func getImage(withUrl  url:String ,success:@escaping (UIImage) -> Void, failure:@escaping (Error) -> Void  ){
+        Alamofire.request(url).validate().responseString { (response) in
+            switch(response.result) {
+                case .success(_):
+                    success(//UIImage(data: response.data!,scale: 1)!
+                        UIImage(data: response.data!)!)
+                case .failure(let error):
+                    failure(error)
+                
+                
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
 //    func connectedToNetwork() -> Bool {
 //

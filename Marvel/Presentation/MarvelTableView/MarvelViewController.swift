@@ -54,10 +54,21 @@ extension MarvelViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MarvelCell",for: indexPath) as! MarvelCell
-        cell.MarvelName.text = characters[indexPath.row].name
-        cell.MarvelDescription.text = characters[indexPath.row].description
+        let char = characters[indexPath.row]
+        cell.MarvelName.text = char.name
+        cell.MarvelDescription.text = char.description
+      //  cell.imageView?.image = UIImage(named: "3abdo")
+      
+        cell.selectionStyle = .none
+        cell.imageView?.updateImage(withUrl: "\(char.thumbnail.path).\(char.thumbnail.thumbnailExtension.rawValue)" )
+        cell.setNeedsLayout()
+//        cell.layoutIfNeeded()
         // here we will call our Image view extension
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
     }
     
 }

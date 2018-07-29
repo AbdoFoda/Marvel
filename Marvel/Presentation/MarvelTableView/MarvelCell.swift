@@ -16,4 +16,8 @@ class MarvelCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        MarvleImage.frame   =  CGRect(x: 0, y: 0, width: 100, height: 200)
+    }
 }
