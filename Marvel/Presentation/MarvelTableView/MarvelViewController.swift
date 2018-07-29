@@ -8,21 +8,45 @@
 
 import UIKit
 
-class MarvelViewController: UIViewController{
+protocol MarvelViewProtocol {
+    func getImagesFromPresenter(images:[UIImage])
+    func getCharacters(characters:[Result])
+}
+
+
+
+class MarvelViewController: UIViewController,MarvelViewProtocol {
+    
+    func getCharacters(characters:[Result]) {
+    
+        self.characters = characters
+        self.marvelTabel.reloadData()
+    }
+    
+    func getImagesFromPresenter(images: [UIImage]) {
+        
+        charImages = images
+        marvelTabel.reloadData()
+    }
+    var charImages = [UIImage]()
     
     var characters = [Result]()
 
+    var presenter : MarvelPresenter?
     @IBOutlet weak var marvelTabel: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         marvelTabel.dataSource = self
         marvelTabel.delegate = self
-        marvelTabel.register(UINib.init(nibName:"MarvelCell",bundle:nil), forCellReuseIdentifier: "MarvelCell")
-        CharacterRepositoryUseCase().getCharactersData(completion: {(characters:[Result]) in
-           self.characters = characters
-           self.marvelTabel.reloadData()
-        }
-        )
+        //marvelTabel.register(UINib.init(nibName:"MarvelCell",bundle:nil), forCellReuseIdentifier: "MarvelCell")
+        presenter = MarvelPresenter(view: self)
+        
+        
+//        CharacterRepositoryUseCase().getCharactersData(completion: {(characters:[Result]) in
+//           self.characters = characters
+//           self.marvelTabel.reloadData()
+//        }
+//        )
         // Do any additional setup after loading the view.
     }
 
@@ -55,13 +79,16 @@ extension MarvelViewController : UITableViewDelegate , UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MarvelCell",for: indexPath) as! MarvelCell
         let char = characters[indexPath.row]
-        cell.MarvelName.text = char.name
-        cell.MarvelDescription.text = char.description
-      //  cell.imageView?.image = UIImage(named: "3abdo")
+       // cell.MarvelName.text = char.name
+        //cell.MarvelDescription.text = char.description
+        if(charImages.count == characters.count) {
+            cell.marvelImage.image = charImages[indexPath.row]
+        }
+//        cell.imageView?.image = UIImage(named: "3abdo")
       
-        cell.selectionStyle = .none
-        cell.imageView?.updateImage(withUrl: "\(char.thumbnail.path).\(char.thumbnail.thumbnailExtension.rawValue)" )
-        cell.setNeedsLayout()
+       // cell.selectionStyle = .none
+//        cell.imageView?.updateImage(withUrl: "\(char.thumbnail.path).\(char.thumbnail.thumbnailExtension.rawValue)" )
+//        cell.setNeedsLayout()
 //        cell.layoutIfNeeded()
         // here we will call our Image view extension
         return cell

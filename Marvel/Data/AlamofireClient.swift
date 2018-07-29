@@ -67,6 +67,7 @@ class AlamofireClient: APIClient {
     
     // Mark: Download Image
     func getImage(withUrl  url:String ,success:@escaping (UIImage) -> Void, failure:@escaping (Error) -> Void  ){
+        print(url)
         Alamofire.request(url).validate().responseString { (response) in
             switch(response.result) {
                 case .success(_):
