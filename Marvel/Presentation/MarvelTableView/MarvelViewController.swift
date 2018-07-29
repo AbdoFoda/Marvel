@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MarvelViewProtocol {
-    func getImagesFromPresenter(images:[UIImage])
+    func getImagesFromPresenter(images:[UIImage?])
     func getCharacters(characters:[Result])
 }
 
@@ -17,55 +17,41 @@ protocol MarvelViewProtocol {
 
 class MarvelViewController: UIViewController,MarvelViewProtocol {
     
-    func getCharacters(characters:[Result]) {
+    @IBOutlet weak var progressView: UIProgressView!
     
-        self.characters = characters
-        self.marvelTabel.reloadData()
-    }
-    
-    func getImagesFromPresenter(images: [UIImage]) {
-        
-        charImages = images
-        marvelTabel.reloadData()
-    }
-    var charImages = [UIImage]()
-    
+    var charImages = [UIImage?]()
     var characters = [Result]()
-
     var presenter : MarvelPresenter?
+    
     @IBOutlet weak var marvelTabel: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         marvelTabel.dataSource = self
         marvelTabel.delegate = self
-        //marvelTabel.register(UINib.init(nibName:"MarvelCell",bundle:nil), forCellReuseIdentifier: "MarvelCell")
         presenter = MarvelPresenter(view: self)
         
-        
-//        CharacterRepositoryUseCase().getCharactersData(completion: {(characters:[Result]) in
-//           self.characters = characters
-//           self.marvelTabel.reloadData()
-//        }
-//        )
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func getCharacters(characters:[Result]) {
+        self.characters = characters
+        self.marvelTabel.reloadData()
     }
-    */
-
+    
+    func getImagesFromPresenter(images: [UIImage?]) {
+        charImages = images
+        marvelTabel.reloadData()
+    }
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 
@@ -78,19 +64,15 @@ extension MarvelViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MarvelCell",for: indexPath) as! MarvelCell
-        let char = characters[indexPath.row]
-       // cell.MarvelName.text = char.name
+        // let char = characters[indexPath.row]
+        // cell.MarvelName.text = char.name
         //cell.MarvelDescription.text = char.description
         if(charImages.count == characters.count) {
-            cell.marvelImage.image = charImages[indexPath.row]
+            if (charImages[indexPath.row]) != nil {
+                cell.marvelImage.image = charImages[indexPath.row]
+            }
         }
-//        cell.imageView?.image = UIImage(named: "3abdo")
-      
-       // cell.selectionStyle = .none
-//        cell.imageView?.updateImage(withUrl: "\(char.thumbnail.path).\(char.thumbnail.thumbnailExtension.rawValue)" )
-//        cell.setNeedsLayout()
-//        cell.layoutIfNeeded()
-        // here we will call our Image view extension
+        
         return cell
     }
     

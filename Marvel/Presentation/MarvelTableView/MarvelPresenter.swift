@@ -1,11 +1,3 @@
-//
-//  MarvelPresenter.swift
-//  Marvel
-//
-//  Created by Ahmad Ragab on 7/29/18.
-//  Copyright © 2018 Ahmad Ragab. All rights reserved.
-//
-
 import Foundation
 import UIKit
 class MarvelPresenter {
@@ -28,23 +20,21 @@ class MarvelPresenter {
     }
     
     func getMarvelImagesFromNetwork(ImagesUrl :[String]) {
-        var marvelCharactersImages = [UIImage] ()
-        for url in ImagesUrl {
-            AlamofireClient.sharedInstance.getImage(withUrl:url , success :  {(image:UIImage) in
-                marvelCharactersImages.append(image)
-                if(marvelCharactersImages.count == ImagesUrl.count) {
+        var marvelCharactersImages = [UIImage?] (repeating : nil , count : ImagesUrl.count)
+        var charCount = 0
+        for urlIdx in 0...ImagesUrl.count-1 {
+            AlamofireClient.sharedInstance.getImage(withUrl:ImagesUrl[urlIdx] , success :  {(image:UIImage) in
+                marvelCharactersImages[urlIdx] = image // urlIdx is private variable here
+                DispatchQueue.global().sync { //mutex lock
+                    charCount += 1
+                }
+                if(charCount  == ImagesUrl.count) {
                     self.view.getImagesFromPresenter(images: marvelCharactersImages)
                 }
             }, failure :  { (error :Error) in
                 print(error)
-                
-            }
-            )
+            })
         }
-        
     }
-    
-    
-    
     
 }
