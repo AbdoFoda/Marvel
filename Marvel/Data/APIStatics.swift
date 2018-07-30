@@ -13,19 +13,22 @@ struct APIURLS {
 }
 
 
-struct CharacterRequestValues {
-    var name:String?
-    var nameStartWith:String?
-    var modifiedSince:Date?
-    var comics:[Int]?
-    var series:[Int]?
-    var events:[Int]?
-    var stories:[Int]?
-    enum CompareParameter :String{
-        case name , modified
-    }
-    var OrderBy : CompareParameter?
-    var limit : Int?
-    var offset :Int?
-}
+//struct CharacterRequestValues {
+//    init(name:String) {
+//        self.name = name
+//    }
+//    var name:String?
+//    var nameStartWith:String?
+//    var modifiedSince:Date?
+//    var comics:[Int]?
+//    var series:[Int]?
+//    var events:[Int]?
+//    var stories:[Int]?
+//    enum CompareParameter :String{
+//        case name , modified
+//    }
+//    var OrderBy : CompareParameter?
+//    var limit : Int?
+//    var offset :Int?
+//}
 

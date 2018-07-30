@@ -4,7 +4,7 @@ import Foundation
 
 protocol CharacterRepositroyProtocol {
     
-    func getCharactersData(completion : @escaping (([Result])->Void) )
+    func getCharactersData(name : String , completion : @escaping (([Result])->Void) )
     
 }
 

@@ -10,10 +10,11 @@ import Foundation
 class RemoteDS  :MarvelDataSource{
     
     
-    static func getMarvelData(requestValues: CharacterRequestValues, onSuccess_repo: @escaping ([Result]) -> Void, onFailure_repo: @escaping (String) -> Void) {
-        let url = APIURLS.characterURL + APIURLS.characterParameters
-       
-        
+    static func getMarvelData(name: String, onSuccess_repo: @escaping ([Result]) -> Void, onFailure_repo: @escaping (String) -> Void) {
+        var url = APIURLS.characterURL + APIURLS.characterParameters
+        if name != ""{
+           url += "&nameStartsWith=\(name)"
+        }
         AlamofireClient.sharedInstance.executeGetRequest(url: url, parameters: [:], header: [:], success: { (response) in
             print("DONWLOADED")
             let ret = try? JSONDecoder().decode(Marvel.self, from : response)

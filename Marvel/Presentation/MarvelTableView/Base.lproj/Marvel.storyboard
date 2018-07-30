@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8o3-Aj-nte">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8o3-Aj-nte">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,40 +18,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BZG-AY-aOk">
+                                <rect key="frame" x="0.0" y="74" width="375" height="2"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Marvel Data..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wg-jK-LI2">
+                                <rect key="frame" x="0.0" y="86" width="375" height="20.5"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="205" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BKP-rF-cF6">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="111.5" width="375" height="560.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ratio" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Wg-jK-LI2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <progressView key="tableFooterView" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="BZG-AY-aOk">
-                                    <rect key="frame" x="0.0" y="313" width="375" height="2"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </progressView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MarvelCell" id="nnW-CU-iMo" customClass="MarvelCell" customModule="Marvel" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="108" width="375" height="205"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="205"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nnW-CU-iMo" id="fqO-rP-uOE">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="204.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4BK-nY-7Hi">
-                                                    <rect key="frame" x="15" y="11" width="345" height="183"/>
+                                                    <rect key="frame" x="0.0" y="5" width="375" height="194.5"/>
                                                 </imageView>
+                                                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVp-Xi-NL2">
+                                                    <rect key="frame" x="200" y="153.5" width="45" height="21"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.39570847602739728" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="4BK-nY-7Hi" secondAttribute="trailing" id="9jC-oU-fqG"/>
-                                                <constraint firstItem="4BK-nY-7Hi" firstAttribute="leading" secondItem="fqO-rP-uOE" secondAttribute="leadingMargin" id="LKT-0A-Nv7"/>
-                                                <constraint firstItem="4BK-nY-7Hi" firstAttribute="top" secondItem="fqO-rP-uOE" secondAttribute="topMargin" id="RHf-0Q-9SE"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="4BK-nY-7Hi" secondAttribute="bottom" id="WPk-Ht-cRe"/>
+                                                <constraint firstAttribute="bottom" secondItem="4BK-nY-7Hi" secondAttribute="bottom" constant="5" id="LC8-6l-MtH"/>
+                                                <constraint firstAttribute="trailing" secondItem="4BK-nY-7Hi" secondAttribute="trailing" id="TSI-qK-0Zs"/>
+                                                <constraint firstItem="4BK-nY-7Hi" firstAttribute="leading" secondItem="fqO-rP-uOE" secondAttribute="leading" id="XFE-lW-XXQ"/>
+                                                <constraint firstItem="bVp-Xi-NL2" firstAttribute="leading" secondItem="fqO-rP-uOE" secondAttribute="leading" constant="200" id="fy1-d5-s3Z"/>
+                                                <constraint firstItem="4BK-nY-7Hi" firstAttribute="top" secondItem="fqO-rP-uOE" secondAttribute="top" constant="5" id="m0R-Qr-kty"/>
+                                                <constraint firstAttribute="bottom" secondItem="bVp-Xi-NL2" secondAttribute="bottom" constant="30" id="zy5-rw-E1s"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <outlet property="MarvelName" destination="bVp-Xi-NL2" id="e1v-br-Qlo"/>
                                             <outlet property="marvelImage" destination="4BK-nY-7Hi" id="N9I-fg-nMi"/>
                                         </connections>
                                     </tableViewCell>
@@ -62,14 +70,21 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="BKP-rF-cF6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9yw-RI-iKZ"/>
-                            <constraint firstItem="BKP-rF-cF6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Mih-ia-Ysi"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BKP-rF-cF6" secondAttribute="bottom" id="eNs-pQ-GNN"/>
+                            <constraint firstItem="BZG-AY-aOk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="EMa-6p-f2v"/>
+                            <constraint firstItem="BKP-rF-cF6" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="5" id="Nca-S0-SUr"/>
+                            <constraint firstItem="BKP-rF-cF6" firstAttribute="top" secondItem="0Wg-jK-LI2" secondAttribute="bottom" constant="5" id="UQc-MZ-WLW"/>
+                            <constraint firstItem="0Wg-jK-LI2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="V7Q-BL-Aau"/>
+                            <constraint firstItem="BZG-AY-aOk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jf0-Wn-jtM"/>
+                            <constraint firstAttribute="trailing" secondItem="BZG-AY-aOk" secondAttribute="trailing" id="lTf-Vh-cUg"/>
+                            <constraint firstItem="0Wg-jK-LI2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nDd-Cy-WHD"/>
+                            <constraint firstItem="0Wg-jK-LI2" firstAttribute="top" secondItem="BZG-AY-aOk" secondAttribute="bottom" constant="10" id="rim-q3-dNR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BKP-rF-cF6" secondAttribute="trailing" id="zl6-D3-Lsf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZiF-Rq-KZV"/>
                     <connections>
+                        <outlet property="loadingLabel" destination="0Wg-jK-LI2" id="jmP-ze-Q69"/>
                         <outlet property="marvelTabel" destination="BKP-rF-cF6" id="ZqS-VB-sFR"/>
                         <outlet property="progressView" destination="BZG-AY-aOk" id="CDC-kL-gu9"/>
                     </connections>

@@ -11,7 +11,7 @@ import Foundation
 protocol MarvelDataSource{
     
     
-   static func getMarvelData(requestValues: CharacterRequestValues,  onSuccess_repo:@escaping([Result]) -> Void, onFailure_repo:@escaping (String) -> Void);
+   static func getMarvelData(name  : String,  onSuccess_repo:@escaping([Result]) -> Void, onFailure_repo:@escaping (String) -> Void);
     
     
 }
