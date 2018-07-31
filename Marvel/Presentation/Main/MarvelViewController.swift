@@ -46,6 +46,7 @@ class MarvelViewController: UIViewController,MarvelViewProtocol {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Marvel"
         navigationItem.searchController = searchController
+        searchController.searchBar.delegate = self
         definesPresentationContext = true
     }
     
@@ -67,15 +68,12 @@ class MarvelViewController: UIViewController,MarvelViewProtocol {
         charImages = images
         marvelTabel.reloadData()
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+        
      }
-     */
+    
     
 }
 
@@ -85,7 +83,10 @@ extension MarvelViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characters.count
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetails", sender: self)
+      
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MarvelCell",for: indexPath) as! MarvelCell
@@ -105,8 +106,12 @@ extension MarvelViewController : UITableViewDelegate , UITableViewDataSource {
 }
 
 
-extension MarvelViewController :UISearchResultsUpdating {
+extension MarvelViewController :UISearchResultsUpdating ,UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         print(searchController.searchBar.text!)
         if let searchText = searchController.searchBar.text {
             presenter?.getMarvelDataFromNetwork(name: searchText)
