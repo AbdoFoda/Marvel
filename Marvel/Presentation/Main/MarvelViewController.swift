@@ -1,11 +1,3 @@
-//
-//  MarvelViewController.swift
-//  Marvel
-//
-//  Created by Abdulrahman on 7/26/18.
-//  Copyright © 2018 Ahmad Ragab. All rights reserved.
-//
-
 import UIKit
 
 protocol MarvelViewProtocol {
@@ -13,7 +5,7 @@ protocol MarvelViewProtocol {
     func getCharacters(characters:[Result])
     func adjustProgressView(withProgress progress:Float)
     func initSearchBar()
-    func hideProgress()
+    func hideProgressBar()
 }
 
 
@@ -37,7 +29,7 @@ class MarvelViewController: UIViewController,MarvelViewProtocol {
         marvelTabel.delegate = self
         presenter = MarvelPresenter(view: self)
     }
-    func hideProgress() {
+    func hideProgressBar() {
         self.loadingLabel.isHidden = true
         self.progressView.isHidden = true
     }
@@ -59,20 +51,25 @@ class MarvelViewController: UIViewController,MarvelViewProtocol {
             loadingLabel.attributedText = NSAttributedString(string : "Done :)")
         }
     }
+    
     func getCharacters(characters:[Result]) {
         self.characters = characters
         self.marvelTabel.reloadData()
     }
     
     func getImagesFromPresenter(images: [UIImage?]) {
-        charImages = images
-        marvelTabel.reloadData()
+        self.charImages = images
+        self.marvelTabel.reloadData()
     }
     
-    
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-     }
+    var selectedChar : Result?
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetails" && selectedChar != nil{
+            if let details = segue.destination as? DetailsViewController {
+                details.setChar(character: selectedChar!)
+            }
+        }
+    }
     
     
 }
@@ -84,6 +81,7 @@ extension MarvelViewController : UITableViewDelegate , UITableViewDataSource {
         return characters.count
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedChar = characters[indexPath.row]
         performSegue(withIdentifier: "showDetails", sender: self)
       
     }

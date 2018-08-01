@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+
 class MarvelPresenter {
     var view : MarvelViewProtocol
     init(view : MarvelViewProtocol) {
@@ -40,7 +41,7 @@ class MarvelPresenter {
                     
                     if(charCount  == ImagesUrl.count) {
                         self.view.getImagesFromPresenter(images: marvelCharactersImages)
-                        self.view.hideProgress()
+                        self.view.hideProgressBar()
                         self.view.initSearchBar()
                     }
                 }, failure :  { (error :Error) in
@@ -49,7 +50,7 @@ class MarvelPresenter {
             }
         } else {
             self.view.getImagesFromPresenter(images: marvelCharactersImages)
-            self.view.hideProgress()
+            self.view.hideProgressBar()
         }
     }
     

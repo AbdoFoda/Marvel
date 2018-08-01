@@ -1,5 +1,5 @@
 import Foundation
-import SwiftHash
+
 
 struct APIURLS {
     static let characterURL = "http://gateway.marvel.com/v1/public/characters?"
@@ -9,7 +9,9 @@ struct APIURLS {
     static func hash() ->String  {
         return "d33dab3c2be21242fffac916c4897965"
     }
-    static let characterParameters = "ts=\(ts)&apikey=\(publicKey)&hash=\(hash())"
+    static let API_Parameters = "ts=\(ts)&apikey=\(publicKey)&hash=\(hash())"
+    
+
 }
 
 

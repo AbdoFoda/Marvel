@@ -8,21 +8,40 @@
 
 import UIKit
 
-class DetailsCell: UITableViewCell , UICollectionViewDelegate , UICollectionViewDataSource{
+class DetailsCell: UITableViewCell, UICollectionViewDelegate,UICollectionViewDataSource {
+    
+    var comics :[Comic]?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+        return (comics?.count)!
+    }
+    let cellWidth = 100
+    let cellHeight = 150
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
+    
+    func setComics (comics : [Comic]) {
+            self.comics = comics
+            detailsCollectionView.delegate = self
+            detailsCollectionView.dataSource = self
+            detailsCollectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        
+        let cell = detailsCollectionView.dequeueReusableCell(withReuseIdentifier: "DetailsCollection", for: indexPath) as! DetailsCollectionViewCell
+        cell.detailsName.text =  (comics![indexPath.row]).title
+        return cell
+        
+        
     }
     
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        detailsCollectionView.delegate = self
-        detailsCollectionView.dataSource = self
-        // Initialization code
+        
+        
+   
     }
     @IBOutlet weak var detailsCollectionView: UICollectionView!
     

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B82DD242111B8F50014C7E0 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B82DD232111B8F50014C7E0 /* LocalDataSource.swift */; };
+		2B82DD262111CF4E0014C7E0 /* ComicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B82DD252111CF4E0014C7E0 /* ComicModel.swift */; };
+		2B82DD292111F1FF0014C7E0 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B82DD282111F1FF0014C7E0 /* DetailsPresenter.swift */; };
 		2BF112132109CE80006FB16E /* MarvelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF112122109CE80006FB16E /* MarvelViewController.swift */; };
 		2BF11215210A37F4006FB16E /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF11214210A37F4006FB16E /* ImageViewExtension.swift */; };
 		4955529977A4962B856BDD51 /* Pods_Marvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D52BEFA9A4FDDF1792D445 /* Pods_Marvel.framework */; };
@@ -31,6 +34,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B82DD232111B8F50014C7E0 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
+		2B82DD252111CF4E0014C7E0 /* ComicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicModel.swift; sourceTree = "<group>"; };
+		2B82DD282111F1FF0014C7E0 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
 		2BF112122109CE80006FB16E /* MarvelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelViewController.swift; sourceTree = "<group>"; };
 		2BF11214210A37F4006FB16E /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		35D52BEFA9A4FDDF1792D445 /* Pods_Marvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +85,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2B82DD272111CF640014C7E0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2B82DD252111CF4E0014C7E0 /* ComicModel.swift */,
+				D20E54AC2107675E00B9C57C /* MarvelModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		597C99EA66915DA7845339F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,9 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				D20E54C02108976A00B9C57C /* APIStatics.swift */,
-				D20E54B62107796F00B9C57C /* AlamofireClient.swift */,
 				D20E54B52107796F00B9C57C /* APIClient.swift */,
-				D20E54AC2107675E00B9C57C /* MarvelModel.swift */,
+				D20E54B62107796F00B9C57C /* AlamofireClient.swift */,
+				2B82DD272111CF640014C7E0 /* Models */,
 				D20E54BF21077EAB00B9C57C /* MarvelDataSource */,
 			);
 			path = Data;
@@ -164,6 +179,7 @@
 				D20E54C92110864C00B9C57C /* DetailsViewController.swift */,
 				D231FC80211089EF00873B83 /* DetailsCell.swift */,
 				D231FC822110B47000873B83 /* DetailsCollectionViewCell.swift */,
+				2B82DD282111F1FF0014C7E0 /* DetailsPresenter.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -173,6 +189,7 @@
 			children = (
 				D20E54B921077E5E00B9C57C /* DataSourceContract.swift */,
 				D20E54BD21077E8A00B9C57C /* RemoteDataSource.swift */,
+				2B82DD232111B8F50014C7E0 /* LocalDataSource.swift */,
 				D20E54BB21077E7500B9C57C /* Repository.swift */,
 			);
 			path = MarvelDataSource;
@@ -268,11 +285,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Marvel/Pods-Marvel-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftHash/SwiftHash.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHash.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,7 +344,10 @@
 				D231FC81211089EF00873B83 /* DetailsCell.swift in Sources */,
 				D20E54BA21077E5E00B9C57C /* DataSourceContract.swift in Sources */,
 				D20E54B82107796F00B9C57C /* AlamofireClient.swift in Sources */,
+				2B82DD262111CF4E0014C7E0 /* ComicModel.swift in Sources */,
 				D20E54C52108A06700B9C57C /* getCharactersUseCase.swift in Sources */,
+				2B82DD292111F1FF0014C7E0 /* DetailsPresenter.swift in Sources */,
+				2B82DD242111B8F50014C7E0 /* LocalDataSource.swift in Sources */,
 				D20E54BE21077E8A00B9C57C /* RemoteDataSource.swift in Sources */,
 				2BF11215210A37F4006FB16E /* ImageViewExtension.swift in Sources */,
 				D20E54C7210DFDFE00B9C57C /* MarvelPresenter.swift in Sources */,

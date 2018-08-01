@@ -21,13 +21,13 @@ struct Result: Codable {
     let name, description, modified: String
     let thumbnail: Thumbnail
     let resourceURI: String
-    let comics, series: Comics
+    let comics, series: ComicsURI
     let stories: Stories
-    let events: Comics
+    let events: ComicsURI
     let urls: [URL]
 }
 
-struct Comics: Codable {
+struct ComicsURI: Codable {
     let available: Int
     let collectionURI: String
     let items: [ComicsItem]

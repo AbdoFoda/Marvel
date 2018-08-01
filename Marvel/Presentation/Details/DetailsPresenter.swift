@@ -7,3 +7,24 @@
 //
 
 import Foundation
+class DetailsPresenter {
+    var view : DetailsViewProtocol?
+    
+    init (view : DetailsViewProtocol) {
+        self.view = view
+        getCharacterComics()
+    }
+    
+    
+    func getCharacterComics() {
+        let comicsUrl = "\(self.view!.getComicsURL())?\(APIURLS.API_Parameters)"
+        
+        RemoteDS.getComics(url: comicsUrl, onSuccess: { (comics) in
+            self.view?.loadComics(comics: comics)
+        }) { (error) in
+            print (error)
+        }
+        
+    }
+    
+}
