@@ -1,4 +1,5 @@
 import UIKit
+import SwiftGifOrigin
 
 protocol MarvelViewProtocol {
     func getImagesFromPresenter(images:[UIImage?])
@@ -98,7 +99,6 @@ extension MarvelViewController : UITableViewDelegate , UITableViewDataSource {
                 cell.marvelImage.layer.masksToBounds = true
             }
         }
-        
         return cell
     }
 }

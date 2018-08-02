@@ -28,7 +28,7 @@ class MarvelPresenter {
         let remainingProgressRatio :Float = 0.9
         var currentProgressRation :Float = 0.1
         if(ImagesUrl.count>0) {
-            for urlIdx in 0...ImagesUrl.count-1 {
+            for urlIdx in 0..<ImagesUrl.count {
                 AlamofireClient.sharedInstance.getImage(withUrl:ImagesUrl[urlIdx] , success :  {(image:UIImage) in
                     marvelCharactersImages[urlIdx] = image // urlIdx is private variable here
                     DispatchQueue.global(qos: .utility).sync { //mutex lock
