@@ -2,19 +2,21 @@ import Foundation
 import UIKit
 
 protocol DetailsViewProtocol {
+    
+    func startActivityIndicator()
+    func stopActivityIndicator()
+    
     func loadComics(comics : [Comic])
     func loadSeries(series : [Comic])
     
     func loadComicImage(withIdx idx:Int , image : UIImage)
     func loadSeriesImage(withIdx idx: Int, image: UIImage)
-
+    
     func getComicsURL() -> String
     func getSeriesURL() -> String
 }
 class DetailsViewController: UIViewController,  DetailsViewProtocol{
-
-    
-    
+   
     @IBOutlet weak var detailsTableView: UITableView!
     @IBOutlet weak var charImage: UIImageView!
     @IBOutlet weak var charNameLabel: UILabel!
@@ -31,6 +33,18 @@ class DetailsViewController: UIViewController,  DetailsViewProtocol{
     var comicsCell : DetailsCell?
     var seriesCell : DetailsCell?
     
+    
+    let myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    
+    func startActivityIndicator() {
+       myActivityIndicator.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+        myActivityIndicator.stopAnimating()
+    }
+    
+    
     func getComicsURL() -> String {
         return (character?.comics.collectionURI)!
     }
@@ -41,6 +55,9 @@ class DetailsViewController: UIViewController,  DetailsViewProtocol{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        myActivityIndicator.center = view.center
+        myActivityIndicator.transform = CGAffineTransform(scaleX: 3, y: 3)
+        view.addSubview(myActivityIndicator)
         self.charNameLabel?.text = character?.name
         /// move this line to presenter
         AlamofireClient.sharedInstance.getImage(withUrl: "\(self.character!.thumbnail.path).\(self.character!.thumbnail.thumbnailExtension.rawValue)", success: { (image) in

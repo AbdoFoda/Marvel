@@ -10,11 +10,22 @@ import Foundation
 import UIKit
 class DetailsPresenter {
     var view : DetailsViewProtocol?
-    
+    var loaded = false
     init (view : DetailsViewProtocol) {
         self.view = view
+        self.view?.startActivityIndicator()
         getCharacterComics()
         getCharacterSeries()
+    }
+    
+    func stopViewIndicator() {
+        DispatchQueue.global().sync {
+            if(self.loaded) {
+                self.view?.stopActivityIndicator()
+            }else{
+                self.loaded = true
+            }
+        }
     }
     
     func getCharacterSeries() {
@@ -25,6 +36,7 @@ class DetailsPresenter {
             self.getComicsImages(comics: series) {
                 (idx , image) in
                 self.view?.loadSeriesImage(withIdx: idx, image: image)
+                self.stopViewIndicator()
             }
         }) { (error) in
             print (error)
@@ -40,6 +52,7 @@ class DetailsPresenter {
             self.getComicsImages(comics: comics) {
                 (idx , image) in
                     self.view?.loadComicImage(withIdx: idx, image: image)
+                    self.stopViewIndicator()
             }
         }) { (error) in
             print (error)
