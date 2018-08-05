@@ -43,7 +43,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Loading" translatesAutoresizingMaskIntoConstraints="NO" id="4BK-nY-7Hi">
                                                     <rect key="frame" x="0.0" y="5" width="375" height="194.5"/>
                                                 </imageView>
-                                                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVp-Xi-NL2">
+                                                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVp-Xi-NL2">
                                                     <rect key="frame" x="200" y="154" width="45" height="20.5"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.39570847602739728" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -57,6 +57,7 @@
                                                 <constraint firstItem="4BK-nY-7Hi" firstAttribute="leading" secondItem="fqO-rP-uOE" secondAttribute="leading" id="XFE-lW-XXQ"/>
                                                 <constraint firstItem="bVp-Xi-NL2" firstAttribute="leading" secondItem="fqO-rP-uOE" secondAttribute="leading" constant="200" id="fy1-d5-s3Z"/>
                                                 <constraint firstItem="4BK-nY-7Hi" firstAttribute="top" secondItem="fqO-rP-uOE" secondAttribute="top" constant="5" id="m0R-Qr-kty"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bVp-Xi-NL2" secondAttribute="trailing" constant="10" id="sfc-wQ-e6Q"/>
                                                 <constraint firstAttribute="bottom" secondItem="bVp-Xi-NL2" secondAttribute="bottom" constant="30" id="zy5-rw-E1s"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -170,7 +171,7 @@
                                                                 <outlet property="detailsName" destination="UvW-7q-mBs" id="ED2-PO-VOg"/>
                                                             </connections>
                                                         </collectionViewCell>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="MOV-kF-GHn" customClass="DetailsCollectionViewCell" customModule="Marvel" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="unusedIdentifier" id="MOV-kF-GHn" customClass="DetailsCollectionViewCell" customModule="Marvel" customModuleProvider="target">
                                                             <rect key="frame" x="212" y="50" width="163" height="121"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -180,7 +181,7 @@
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Loading" translatesAutoresizingMaskIntoConstraints="NO" id="fe8-gV-AfU">
                                                                         <rect key="frame" x="0.0" y="0.0" width="163" height="96"/>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckW-9c-g7F">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckW-9c-g7F">
                                                                         <rect key="frame" x="16" y="101" width="131" height="12"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                         <nil key="textColor"/>
