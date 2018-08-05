@@ -14,8 +14,20 @@ protocol DetailsViewProtocol {
     
     func getComicsURL() -> String
     func getSeriesURL() -> String
+    
+    func setCharImage(charImage : UIImage)
+    func getCharImageURL() -> String
 }
 class DetailsViewController: UIViewController,  DetailsViewProtocol{
+    func getCharImageURL() -> String {
+        return "\(self.character!.thumbnail.path).\(self.character!.thumbnail.thumbnailExtension.rawValue)"
+    }
+    
+    
+    func setCharImage(charImage image: UIImage) {
+        self.charImage.image = image
+    }
+    
    
     @IBOutlet weak var detailsTableView: UITableView!
     @IBOutlet weak var charImage: UIImageView!
@@ -60,11 +72,7 @@ class DetailsViewController: UIViewController,  DetailsViewProtocol{
         view.addSubview(myActivityIndicator)
         self.charNameLabel?.text = character?.name
         /// move this line to presenter
-        AlamofireClient.sharedInstance.getImage(withUrl: "\(self.character!.thumbnail.path).\(self.character!.thumbnail.thumbnailExtension.rawValue)", success: { (image) in
-            self.charImage.image = image
-        }) { (error) in
-            print(error)
-        }
+       
         self.presenter = DetailsPresenter(view : self)
         detailsTableView.delegate = self
         detailsTableView.dataSource = self

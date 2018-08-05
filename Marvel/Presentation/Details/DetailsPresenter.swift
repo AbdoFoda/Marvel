@@ -11,11 +11,20 @@ import UIKit
 class DetailsPresenter {
     var view : DetailsViewProtocol?
     var loaded = false
+    
     init (view : DetailsViewProtocol) {
         self.view = view
         self.view?.startActivityIndicator()
         getCharacterComics()
         getCharacterSeries()
+    }
+    
+    func getCharacterImage() {
+        AlamofireClient.sharedInstance.getImage(withUrl: (self.view?.getCharImageURL())!, success: { (image) in
+            
+        }) { (error) in
+            print(error)
+        }
     }
     
     func stopViewIndicator() {
