@@ -8,6 +8,7 @@ target 'Marvel' do
   pod 'Alamofire'
   pod 'SwiftHash'
   pod 'Cache' 
-  # Pods for Marvel
+  pod 'SwiftGifOrigin' 
+ # Pods for Marvel
 
 end

@@ -11,7 +11,6 @@
 		2B82DD262111CF4E0014C7E0 /* ComicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B82DD252111CF4E0014C7E0 /* ComicModel.swift */; };
 		2B82DD292111F1FF0014C7E0 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B82DD282111F1FF0014C7E0 /* DetailsPresenter.swift */; };
 		2BF112132109CE80006FB16E /* MarvelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF112122109CE80006FB16E /* MarvelViewController.swift */; };
-		2BF11215210A37F4006FB16E /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF11214210A37F4006FB16E /* ImageViewExtension.swift */; };
 		4955529977A4962B856BDD51 /* Pods_Marvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D52BEFA9A4FDDF1792D445 /* Pods_Marvel.framework */; };
 		D20E549021075C4100B9C57C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E548F21075C4100B9C57C /* AppDelegate.swift */; };
 		D20E549521075C4100B9C57C /* Marvel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20E549321075C4100B9C57C /* Marvel.storyboard */; };
@@ -38,7 +37,6 @@
 		2B82DD252111CF4E0014C7E0 /* ComicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicModel.swift; sourceTree = "<group>"; };
 		2B82DD282111F1FF0014C7E0 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
 		2BF112122109CE80006FB16E /* MarvelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelViewController.swift; sourceTree = "<group>"; };
-		2BF11214210A37F4006FB16E /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		35D52BEFA9A4FDDF1792D445 /* Pods_Marvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE3370FA893AD288B125073 /* Pods-Marvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel/Pods-Marvel.release.xcconfig"; sourceTree = "<group>"; };
 		C55360C2D3278D796BF7DC51 /* Pods-Marvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel/Pods-Marvel.debug.xcconfig"; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 				D20E548F21075C4100B9C57C /* AppDelegate.swift */,
 				D20E549621075C4100B9C57C /* Assets.xcassets */,
 				D20E549821075C4100B9C57C /* LaunchScreen.storyboard */,
-				2BF11214210A37F4006FB16E /* ImageViewExtension.swift */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -286,12 +283,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Marvel/Pods-Marvel-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftHash/SwiftHash.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGifOrigin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHash.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,7 +348,6 @@
 				2B82DD292111F1FF0014C7E0 /* DetailsPresenter.swift in Sources */,
 				2B82DD242111B8F50014C7E0 /* LocalDataSource.swift in Sources */,
 				D20E54BE21077E8A00B9C57C /* RemoteDataSource.swift in Sources */,
-				2BF11215210A37F4006FB16E /* ImageViewExtension.swift in Sources */,
 				D20E54C7210DFDFE00B9C57C /* MarvelPresenter.swift in Sources */,
 				2BF112132109CE80006FB16E /* MarvelViewController.swift in Sources */,
 				D20E54AD2107675E00B9C57C /* MarvelModel.swift in Sources */,

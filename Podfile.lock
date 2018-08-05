@@ -1,18 +1,21 @@
 PODS:
   - Alamofire (4.7.2)
   - Cache (5.0.0)
+  - SwiftGifOrigin (1.6.1)
   - SwiftHash (2.0.1)
 
 DEPENDENCIES:
   - Alamofire
   - Cache
+  - SwiftGifOrigin
   - SwiftHash
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Cache: fae4826ba52d7a5d9a3a0ad6fe73e3501a82964f
+  SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
   SwiftHash: c805de5a434eacfa0dac7210745a50c55d7fe33d
 
-PODFILE CHECKSUM: 3a1f66dc3759980c636f98b5e11cb7848940a180
+PODFILE CHECKSUM: 648295c1f3a038a7d3d8d8c77b03ea93b2f469b8
 
 COCOAPODS: 1.4.0
