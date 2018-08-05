@@ -89,9 +89,9 @@ extension MarvelViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MarvelCell",for: indexPath) as! MarvelCell
-         let char = characters[indexPath.row]
-         cell.MarvelName.text = char.name
-        //cell.MarvelDescription.text = char.description
+        let char = characters[indexPath.row]
+        cell.MarvelName.text = char.name
+        cell.MarvelDescription.text = char.description
         if(charImages.count == characters.count) {
             if (charImages[indexPath.row]) != nil {
                 cell.marvelImage.image = charImages[indexPath.row]
