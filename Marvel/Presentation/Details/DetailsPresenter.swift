@@ -15,13 +15,14 @@ class DetailsPresenter {
     init (view : DetailsViewProtocol) {
         self.view = view
         self.view?.startActivityIndicator()
+        getCharacterImage()
         getCharacterComics()
         getCharacterSeries()
     }
     
     func getCharacterImage() {
         AlamofireClient.sharedInstance.getImage(withUrl: (self.view?.getCharImageURL())!, success: { (image) in
-            
+            self.view?.setCharImage(charImage: image)
         }) { (error) in
             print(error)
         }
