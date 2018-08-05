@@ -52,7 +52,7 @@ playground.xcworkspace
 *.markdown
 *.pbxproj
 *.lock
-*.DS_Store
+.DS_Store
 
 # Carthage
 #
