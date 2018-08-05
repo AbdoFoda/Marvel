@@ -14,6 +14,21 @@ class DetailsPresenter {
     init (view : DetailsViewProtocol) {
         self.view = view
         getCharacterComics()
+        getCharacterSeries()
+    }
+    
+    func getCharacterSeries() {
+        let seriesUrl = "\(self.view!.getSeriesURL())?\(APIURLS.API_Parameters)"
+        
+        RemoteDS.getComics(url: seriesUrl, onSuccess: { (series) in
+            self.view?.loadSeries(series: series)
+            self.getComicsImages(comics: series) {
+                (idx , image) in
+                self.view?.loadSeriesImage(withIdx: idx, image: image)
+            }
+        }) { (error) in
+            print (error)
+        }
     }
     
     
@@ -22,24 +37,23 @@ class DetailsPresenter {
         
         RemoteDS.getComics(url: comicsUrl, onSuccess: { (comics) in 
             self.view?.loadComics(comics: comics)
-            self.getComicsImages(comics: comics)
-          
+            self.getComicsImages(comics: comics) {
+                (idx , image) in
+                    self.view?.loadComicImage(withIdx: idx, image: image)
+            }
         }) { (error) in
             print (error)
         }
     }
     
-    func getComicsImages(comics :[Comic]) {
+    func getComicsImages(comics :[Comic] , completion : @escaping (Int,UIImage)->Void ){
         for idxComic in 0..<comics.count{
             let url = "\(comics[idxComic].thumbnail.path).\(comics[idxComic].thumbnail.thumbnailExtension.rawValue)"
             AlamofireClient.sharedInstance.getImage(withUrl: url, success: { (image) in
-                    self.view?.loadComicImage(withIdx: idxComic, image: image)
+                    completion( idxComic,  image)
             }) { (error) in
                 print(error)
             }
         }
     }
-    
-    
-    
 }

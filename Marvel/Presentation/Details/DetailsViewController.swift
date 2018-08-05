@@ -2,9 +2,14 @@ import Foundation
 import UIKit
 
 protocol DetailsViewProtocol {
-    func loadComics(comics : [Comic]) -> Void
+    func loadComics(comics : [Comic])
+    func loadSeries(series : [Comic])
+    
     func loadComicImage(withIdx idx:Int , image : UIImage)
+    func loadSeriesImage(withIdx idx: Int, image: UIImage)
+
     func getComicsURL() -> String
+    func getSeriesURL() -> String
 }
 class DetailsViewController: UIViewController,  DetailsViewProtocol{
 
@@ -21,14 +26,23 @@ class DetailsViewController: UIViewController,  DetailsViewProtocol{
     var presenter :DetailsPresenter?
     
     var comics = [Comic]()
-    var comicImages = [UIImage?]()
-    
-    var idxOfCurrentLoadedImage = -1
+    var series = [Comic]()
+
     var comicsCell : DetailsCell?
+    var seriesCell : DetailsCell?
+    
+    func getComicsURL() -> String {
+        return (character?.comics.collectionURI)!
+    }
+    
+    func getSeriesURL() -> String {
+        return (character?.series.collectionURI)!
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.charNameLabel?.text = character?.name
+        /// move this line to presenter
         AlamofireClient.sharedInstance.getImage(withUrl: "\(self.character!.thumbnail.path).\(self.character!.thumbnail.thumbnailExtension.rawValue)", success: { (image) in
             self.charImage.image = image
         }) { (error) in
@@ -39,30 +53,27 @@ class DetailsViewController: UIViewController,  DetailsViewProtocol{
         detailsTableView.dataSource = self
     }
     
-    func loadComics(comics: [Comic]) {
-        self.comics = comics
-        comicImages = [UIImage?] (repeating: nil, count: comics.count)
-        print("number of comics : \(comics.count)")
-        DispatchQueue.global().sync {
-            self.idxOfCurrentLoadedImage = -1
-            self.comicsCell?.setComics(comics: comics)
-        }
-    }
-    
-    func getComicsURL() -> String {
-        return (character?.comics.collectionURI)!
-    }
-    
-    func loadComicImage(withIdx idx: Int, image: UIImage) {
-        comicImages[idx] = image
-        DispatchQueue.global().sync {
-            self.idxOfCurrentLoadedImage = idx
-            self.comicsCell?.loadComicImage(atIndex: idxOfCurrentLoadedImage, withImage: comicImages[idxOfCurrentLoadedImage]!)
-        }
-    }
-
     func setChar(character : Result) {
         self.character = character
+    }
+    
+    func loadComics(comics: [Comic]) {
+        self.comics = comics
+        self.comicsCell?.setComics(comics: comics)
+    }
+    
+    
+    func loadComicImage(withIdx idx: Int, image: UIImage) {
+        self.comicsCell?.loadComicImage(atIndex: idx, withImage: image)
+    }
+
+    func loadSeries(series : [Comic]) {
+        self.series = series
+        self.seriesCell?.setSeries(series: series)
+    }
+    
+    func loadSeriesImage(withIdx idx: Int, image: UIImage) {
+        self.seriesCell?.loadSeriesImage(atIndex: idx, withImage: image)
     }
 }
 
@@ -77,31 +88,27 @@ extension DetailsViewController : UITableViewDataSource , UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch  section {
-        case 0:
-            return 1
-        default:
-            return 0
-        }
+        return 1
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if(comicsCell == nil) {
-            comicsCell = detailsTableView.dequeueReusableCell(withIdentifier: "DetailsCell") as? DetailsCell
+        switch indexPath.section {
+        case 0:
+            if(comicsCell == nil) {
+                comicsCell = detailsTableView.dequeueReusableCell(withIdentifier: "DetailsCell") as? DetailsCell
+            }
+            return comicsCell!
+        case 1:
+            if(seriesCell == nil) {
+                seriesCell = detailsTableView.dequeueReusableCell(withIdentifier: "DetailsCell") as? DetailsCell
+            }
+            return seriesCell!
+            
+        default:
+            return UITableViewCell()
         }
-//        switch indexPath.section {
-//        case 0: do {
-//                if(idxOfCurrentLoadedImage == -1) {
-//                    comicsCell?.setComics(comics: comics)
-//                }else{
-//                    print("cell is reloaded at index : \(idxOfCurrentLoadedImage)")
-//                    comicsCell?.loadComicImage(atIndex: idxOfCurrentLoadedImage, withImage: comicImages[idxOfCurrentLoadedImage]!)
-//                }
-//            }
-//        default: break
-//        }
-        return comicsCell!
+       
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
