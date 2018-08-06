@@ -48,11 +48,10 @@ playground.xcworkspace
 #
 # Pods/
 *.xcconfig
-*.plist
 *.markdown
-*.pbxproj
 *.lock
 .DS_Store
+
 
 # Carthage
 #
