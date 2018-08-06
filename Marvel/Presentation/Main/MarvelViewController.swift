@@ -92,6 +92,7 @@ extension MarvelViewController : UITableViewDelegate , UITableViewDataSource {
         let char = characters[indexPath.row]
         cell.MarvelName.text = char.name
         cell.MarvelDescription.text = char.description
+        cell.marvelImage.image = #imageLiteral(resourceName: "Loading")
         if(charImages.count == characters.count) {
             if (charImages[indexPath.row]) != nil {
                 cell.marvelImage.image = charImages[indexPath.row]
@@ -106,7 +107,7 @@ extension MarvelViewController : UITableViewDelegate , UITableViewDataSource {
 
 extension MarvelViewController :UISearchResultsUpdating ,UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        
+        // this method is empty as we don't need to update while writing
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
