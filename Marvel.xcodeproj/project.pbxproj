@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B27A92621189FA000089186 /* URLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B27A92521189FA000089186 /* URLModel.swift */; };
+		2B27A92821189FBD00089186 /* ThumbnailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B27A92721189FBD00089186 /* ThumbnailModel.swift */; };
+		2B27A92A2118A05B00089186 /* ComicsURIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B27A9292118A05B00089186 /* ComicsURIModel.swift */; };
 		2B82DD242111B8F50014C7E0 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B82DD232111B8F50014C7E0 /* LocalDataSource.swift */; };
 		2B82DD262111CF4E0014C7E0 /* ComicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B82DD252111CF4E0014C7E0 /* ComicModel.swift */; };
 		2B82DD292111F1FF0014C7E0 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B82DD282111F1FF0014C7E0 /* DetailsPresenter.swift */; };
@@ -33,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B27A92521189FA000089186 /* URLModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLModel.swift; sourceTree = "<group>"; };
+		2B27A92721189FBD00089186 /* ThumbnailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailModel.swift; sourceTree = "<group>"; };
+		2B27A9292118A05B00089186 /* ComicsURIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsURIModel.swift; sourceTree = "<group>"; };
 		2B82DD232111B8F50014C7E0 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
 		2B82DD252111CF4E0014C7E0 /* ComicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicModel.swift; sourceTree = "<group>"; };
 		2B82DD282111F1FF0014C7E0 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
@@ -88,6 +94,9 @@
 			children = (
 				2B82DD252111CF4E0014C7E0 /* ComicModel.swift */,
 				D20E54AC2107675E00B9C57C /* MarvelModel.swift */,
+				2B27A92521189FA000089186 /* URLModel.swift */,
+				2B27A92721189FBD00089186 /* ThumbnailModel.swift */,
+				2B27A9292118A05B00089186 /* ComicsURIModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -351,9 +360,12 @@
 				D20E54C7210DFDFE00B9C57C /* MarvelPresenter.swift in Sources */,
 				2BF112132109CE80006FB16E /* MarvelViewController.swift in Sources */,
 				D20E54AD2107675E00B9C57C /* MarvelModel.swift in Sources */,
+				2B27A92621189FA000089186 /* URLModel.swift in Sources */,
+				2B27A92821189FBD00089186 /* ThumbnailModel.swift in Sources */,
 				D20E54C12108976A00B9C57C /* APIStatics.swift in Sources */,
 				D231FC832110B47000873B83 /* DetailsCollectionViewCell.swift in Sources */,
 				D20E54B72107796F00B9C57C /* APIClient.swift in Sources */,
+				2B27A92A2118A05B00089186 /* ComicsURIModel.swift in Sources */,
 				D20E54BC21077E7500B9C57C /* Repository.swift in Sources */,
 				D20E54AA2107610700B9C57C /* MarvelCell.swift in Sources */,
 				D20E54CA2110864C00B9C57C /* DetailsViewController.swift in Sources */,
